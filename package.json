@@ -1,0 +1,20 @@
+{
+  "name": "jevmail",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Telegram bot that sends each email only to the leads who care about it. Ranking by Jev (TypeSafe).",
+  "type": "module",
+  "engines": { "node": ">=22.6" },
+  "scripts": {
+    "test": "node --experimental-strip-types --no-warnings --test test/logic.test.ts",
+    "check": "tsc --noEmit",
+    "db:init": "wrangler d1 execute jevmail --remote --file=schema.sql",
+    "deploy": "wrangler deploy",
+    "logs": "wrangler tail"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261007.1",
+    "typescript": "^5.9.0",
+    "wrangler": "^4.148.0"
+  }
+}

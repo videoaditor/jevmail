@@ -1,0 +1,28 @@
+{
+  // JevMail — Cloudflare Worker config. The setup agent fills every value marked SETUP (see AGENTS.md).
+  "name": "jevmail",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": true,
+  "triggers": { "crons": ["* * * * *"] },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "jevmail",
+      "database_id": "SETUP: output of `npx wrangler d1 create jevmail`"
+    }
+  ],
+  "vars": {
+    "PUBLIC_URL": "SETUP: https://jevmail.<your-subdomain>.workers.dev",
+    "FROM_EMAIL": "SETUP: Jane from Brand <jane@mail.yourbrand.com>",
+    "REPLY_TO": "SETUP: jane@yourbrand.com",
+    "TIME_ZONE": "Europe/Berlin",
+    "SEND_START_HOUR": "8",
+    "SEND_END_HOUR": "20",
+    "SENDS_PER_MINUTE": "1",
+    "DAILY_CAP": "100",
+    "GAP_HOURS": "48",
+    "RANK_PER_MINUTE": "40"
+  },
+  "observability": { "enabled": true }
+}
